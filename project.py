@@ -1,5 +1,6 @@
 valid = True
 while valid:
+     # MAIN MENU
      print("\n\n\t\t===================================\t\t\n")
      print("\t\t       MULTI-PURPOSE CALCULATOR\t\t\n")
      print("\t\t===================================\t\t\n")
@@ -17,117 +18,218 @@ while valid:
 
 
 
-
      if choice_initial == "A":
+          #ARITHMETIC OPERATION
+          print("\n","-"*7,"ARITHMETIC OPERATION","-"*7)
           print("\n1) Addition\n")
           print("2) Subtraction\n")
           print("3) Multiplication\n")
           print("4) Division\n")
-          
+          print("5) Square\n")
+          print("6) Square Root\n")
+          print("7) Cube\n")
+          print("8) Cube Root\n")
+          print("9 a^b\n")
+          print("-"*36,"\n")
           
           
           choice = input("Enter your choice: ").strip()
-          while choice not in ["1","2","3","4"]:
+          while choice not in ["1","2","3","4","5","6","7","8","9"]:
                print("Invalid Choice.")
                choice = input("\nEnter valid choice: ").strip()
+          if choice in ["1","2","3","4"]:
+               while True:
+                    x = input("\n\nEnter the first number: ").strip()
+                    
+                    if x == "" or x == "-":
+                         print("Invalid input.")
+                         continue
 
-          while True:
-               x = input("\n\nEnter the first number: ").strip()
-               
-               if x == "" or x == "-":
-                    print("Invalid input.")
-                    continue
+                    if x.count("-") > 1 or x.count(".") > 1:
+                         print("Invalid input.")
+                         continue
 
-               if x.count("-") > 1 or x.count(".") > 1:
-                    print("Invalid input.")
-                    continue
+                    if "-" in x and x[0] != "-":
+                         print("Invalid input.")
+                         continue
 
-               if "-" in x and x[0] != "-":
-                    print("Invalid input.")
-                    continue
+                    valid_check = True
+                    for ch in x:
+                         if ch not in ["0","1","2","3","4","5","6","7","8","9",".","-"]:
+                              valid_check = False
+                              break
+                    if not valid_check:
+                         print("Invalid input.")
+                         continue
 
-               valid_check = True
-               for ch in x:
-                    if ch not in ["0","1","2","3","4","5","6","7","8","9",".","-"]:
-                         valid_check = False
-                         break
-               if not valid_check:
-                    print("Invalid input.")
-                    continue
-
-               if x.startswith(".") or x.endswith(".") or x.startswith("-.") :
-                    print("Invalid input.")
-                    continue
-          
-               x = float(x)
-               break
-
+                    if x.startswith(".") or x.endswith(".") or x.startswith("-.") :
+                         print("Invalid input.")
+                         continue
+                    x = float(x)
+                    break
      
-          while True:
-               y = input("Enter the second number: ").strip()
-               
-               if y == "" or y == "-":
-                    print("Invalid input.")
-                    continue
-
-               if y.count("-") > 1 or y.count(".") > 1:
-                    print("Invalid input.")
-                    continue
-
-               if "-" in y and y[0] != "-":
-                    print("Invalid input.")
-                    continue
-
-               valid_check = True
-               for ch in y:
-                    if ch not in "0123456789.-":
-                         valid_check = False
-                         break
-               if not valid_check:
-                    print("Invalid input.")
-                    continue
-
-               if y.startswith(".") or y.endswith(".") or y.startswith("-.") :
-                    print("Invalid input.")
-                    continue
-
-               y = float(y)
-               break
-
-
-          if(choice == "1"):
-               print(f"\n{x} + {y} = {x+y}.\n")
-              
+               while True:
+                    y = input("Enter the second number: ").strip()
                     
-          elif(choice == "2"):
-               print(f"\n{x} - {y} = {x-y}.\n")
-              
-               
-          elif(choice == "3"):
-               print(f"\n{x} * {y} = {x*y}.\n")
-              
+                    if y == "" or y == "-":
+                         print("Invalid input.")
+                         continue
+
+                    if y.count("-") > 1 or y.count(".") > 1:
+                         print("Invalid input.")
+                         continue
+
+                    if "-" in y and y[0] != "-":
+                         print("Invalid input.")
+                         continue
+
+                    valid_check = True
+                    for ch in y:
+                         if ch not in "0123456789.-":
+                              valid_check = False
+                              break
+                    if not valid_check:
+                         print("Invalid input.")
+                         continue
+
+                    if y.startswith(".") or y.endswith(".") or y.startswith("-.") :
+                         print("Invalid input.")
+                         continue
+                    y = float(y)
+                    break
+
+
+               if(choice == "1"):
+                    print(f"\n{x} + {y} = {x+y}.\n")
+                         
+               elif(choice == "2"):
+                    print(f"\n{x} - {y} = {x-y}.\n")
+                              
+               elif(choice == "3"):
+                    print(f"\n{x} * {y} = {x*y}.\n")
+                                   
+               elif(choice == "4"):
+                    if y==0:
+                         print(f"\nIt is not possible to divide the number by 0.\n")                           
+                    else:
+                         print(f"""\n{x} / {y} = {x/y}""")
+                   
+          elif choice in ["5","6","7","8"]:
+               while True:
+                    x = input("\n\nEnter the number: ").strip()
                     
-          elif(choice == "4"):
-               if y==0:
-                    print(f"\nIt is not possible to divide the number by 0.\n")
-                   
-                   
-               else:
-                    print(f"""\n{x} / {y} = {x/y}""")
-                   
-                           
+                    if x == "" or x == "-":
+                         print("Invalid input.")
+                         continue
+
+                    if x.count("-") > 1 or x.count(".") > 1:
+                         print("Invalid input.")
+                         continue
+
+                    if "-" in x and x[0] != "-":
+                         print("Invalid input.")
+                         continue
+
+                    valid_check = True
+                    for ch in x:
+                         if ch not in ["0","1","2","3","4","5","6","7","8","9",".","-"]:
+                              valid_check = False
+                              break
+                    if not valid_check:
+                         print("Invalid input.")
+                         continue
+
+                    if x.startswith(".") or x.endswith(".") or x.startswith("-.") :
+                         print("Invalid input.")
+                         continue
+                    x = float(x)
+                    break  
+               if choice == "5":
+                    print(x,"^2 = ", x**2)   
+               elif choice == "6":
+                    print(x,"^1/2 = ", x**(1/2))
+               elif choice == "7":
+                    print(x,"^3 = ", x**3)
+               elif choice == "8":
+                    print(x,"^1/3 = ", x**(1/3))
+          
+          elif choice == "9":
+               while True:
+                    x = input("\n\nEnter the base: ").strip()
+                    
+                    if x == "" or x == "-":
+                         print("Invalid input.")
+                         continue
+
+                    if x.count("-") > 1 or x.count(".") > 1:
+                         print("Invalid input.")
+                         continue
+
+                    if "-" in x and x[0] != "-":
+                         print("Invalid input.")
+                         continue
+
+                    valid_check = True
+                    for ch in x:
+                         if ch not in ["0","1","2","3","4","5","6","7","8","9",".","-"]:
+                              valid_check = False
+                              break
+                    if not valid_check:
+                         print("Invalid input.")
+                         continue
+
+                    if x.startswith(".") or x.endswith(".") or x.startswith("-.") :
+                         print("Invalid input.")
+                         continue
+                    x = float(x)
+                    break
+
+               while True:
+                    y = input("Enter the power: ").strip()
+                    
+                    if y == "" or y == "-":
+                         print("Invalid input.")
+                         continue
+
+                    if y.count("-") > 1 or y.count(".") > 1:
+                         print("Invalid input.")
+                         continue
+
+                    if "-" in y and y[0] != "-":
+                         print("Invalid input.")
+                         continue
+
+                    valid_check = True
+                    for ch in y:
+                         if ch not in "0123456789.-":
+                              valid_check = False
+                              break
+                    if not valid_check:
+                         print("Invalid input.")
+                         continue
+
+                    if y.startswith(".") or y.endswith(".") or y.startswith("-.") :
+                         print("Invalid input.")
+                         continue
+                    y = float(y)
+                    break
+               print(x,"^",y," = ",x**y)
                
 
 
+     # CONVERSION
      elif choice_initial == "C":
+          print("\n","-"*7,"CONVERSION","-"*7)
           print(f"\n1) Base Conversion\n")
           print(f"2) Temperature Conversion\n")
+          print("-"*26,"\n")
           conv_choice = input("Enter your choice: ").strip()
           while conv_choice not in ["1","2"]:
                print("Invalid Choice.")
                conv_choice = input("\nEnter valid choice: ").strip()
 
           if conv_choice == "1":
+               print("\n","-"*7,"BASE CONVERSION","-"*7)
                print(f"\n1) Decimal to Binary:\n")
                print(f"2) Decimal to Octal:\n")
                print(f"3) Decimal to Hexadecimal:\n")
@@ -140,7 +242,7 @@ while valid:
                print(f"10) Hexadecimal to Decimal:\n")
                print(f"11) Hexadecimal to Binary:\n")
                print(f"12) Hexadecimal to Octal:\n")
-
+               print("-"*31,"\n")
 
                bas_con_choice = input("Enter your choice: ").strip()
                while bas_con_choice not in ["1","2","3","4","5","6","7","8","9","10","11","12"]:
@@ -167,8 +269,7 @@ while valid:
                               prev = prev + str(remainder)
                               dec_num = dec_num//2
                          print(f"The binary value of {fin_num} is {prev[::-1]}.\n")
-                        
-                                   
+                                                          
                     elif bas_con_choice == "2":
                          prev = ""
                          fin_num = dec_num
@@ -178,7 +279,6 @@ while valid:
                               dec_num = dec_num//8
                          print(f"The octal value of {fin_num} is {prev[::-1]}.\n")
                         
-
                     elif bas_con_choice == "3":
                          prev = ""
                          fin_num = dec_num
@@ -189,8 +289,7 @@ while valid:
                               dec_num = dec_num//16
                          print(f"The hexadecimal value of {fin_num} is {prev[::-1]}.\n")
                          
-                                   
-                    
+                                       
                elif bas_con_choice == "4" or bas_con_choice == "5" or bas_con_choice == "6":
                     valid_check = True
                     while valid_check:
@@ -202,7 +301,6 @@ while valid:
                          else:
                               valid_check = False
                              
-                    
                     if bas_con_choice == "4":
                          print(f"\nThe decimal value of {bin_num} is {int(bin_num,2)}.\n")
                                                   
@@ -227,7 +325,6 @@ while valid:
                          else:
                               valid_check = False
                                         
-                    
                     if bas_con_choice == "7":
                          print(f"The decimal value of {oct_num} is {int(oct_num,8)}.\n")
                               
@@ -252,7 +349,6 @@ while valid:
                          else:
                               valid_check = False
                              
-                    
                     if bas_con_choice == "10":
                          print(f"The decimal value of {hex_num} is {int(hex_num,16)}.\n")
                               
@@ -266,24 +362,22 @@ while valid:
                               
                
                    
-
-
-
           if conv_choice == "2":
+               print("\n","-"*7,"TEMPERATURE CONVERSION","-"*7)
                print(f"\n1) Celsius to Fahrenheit\n")
                print(f"2) Celsius to Kelvin\n")
                print(f"3) Fahrenheit to Celsius\n")
                print(f"4) Fahrenheit to Kelvin\n")
                print(f"5) Kelvin to Celsius\n")
                print(f"6) Kelvin to Fahrenheit\n")
+               print("-"*38,"\n")
                temp_choice = input("\nEnter your choice: ").strip()
                while temp_choice not in ["1","2","3","4","5","6"]:
                     print(f"Invalid Input. Enter number from 1 to 6.")
                     temp_choice = input("Enter your choice: ")
 
                if temp_choice == "1" or temp_choice == "2":
-     
-                    
+                        
                     while True:
                          cel = input("\nEnter the temperature in Celsius: ")
                          
@@ -311,10 +405,10 @@ while valid:
                          if cel.startswith(".") or cel.endswith(".") or cel.startswith("-.") :
                               print("Invalid input.")
                               continue
-
                          cel = float(cel)
                          break
                
+
                if temp_choice == "1":
                     fin_temp = 9*cel/5 + 32
                     print(f"\n{cel}{chr(176)}C = {fin_temp}{chr(176)}F\n")
@@ -324,7 +418,6 @@ while valid:
                     print(f"\n{cel}{chr(176)}C = {fin_temp}{chr(176)}K\n")
                     
                     
-               
                if temp_choice == "3" or temp_choice == "4":
                     while True:
                          fah = input("\nEnter the temperature in Fahrenheit: ")
@@ -353,7 +446,6 @@ while valid:
                          if fah.startswith(".") or fah.endswith(".") or fah.startswith("-.") :
                               print("Invalid input.")
                               continue
-
                          fah = float(fah)
                          break
                     
@@ -394,7 +486,6 @@ while valid:
                          if kel.startswith(".") or kel.endswith(".") or kel.startswith("-.") :
                               print("Invalid input.")
                               continue
-
                          kel = float(kel)
                          break
                     
@@ -409,19 +500,25 @@ while valid:
 
 
 
+     
+     # GEOMETRICAL CALCULATION
      elif choice_initial == "G":
           PI = 22/7
+          print("\n","-"*7,"GEOMETRICAL CALCULATION","-"*7)
           print(f"\n1)Area\n")
           print(f"2) Volume\n")
+          print("-"*39,"\n")
           geo_choice = input("\nEnter your choice: ").strip()
           while geo_choice not in ["1","2"]:
                print(f"Invalid Choice.")
                geo_choice = input("\nPlease enter the valid choice: ").strip()
 
           if geo_choice == "1":
+               print("\n","-"*7,"AREA","-"*7)
                print(f"\n1) Area of rectangle\n")
                print(f"2) Area of square\n")
                print(f"3) Area of circle\n")
+               print("-"*20,"\n")
                area_choice = input("Enter your choice: ").strip()
                while area_choice not in ["1","2","3"]:
                     print(f"Invalid Choice.")
@@ -447,7 +544,6 @@ while valid:
                               continue
                          length = float(length)
                          break
-                    
                     
                     while True:
                          breadth = input("\nEnter the breadth of the rectangle: ").strip()
@@ -519,18 +615,23 @@ while valid:
                     print(f"\nRadius of the circle = {radius}")
                     print(f"Area of the circle = {area}\n")
 
+
+
           if geo_choice == "2":
+               print("\n","-"*7,"VOLUME","-"*7)
                print(f"\n1) Volume of Cuboid\n")
                print(f"2) Volume of Cube\n")
                print(f"3) Volume of cone\n")
                print(f"4) Volume of Cylinder\n")
+               print(f"5) Sphere\n")
+               print("-"*22,"\n")
 
                vol_choice = input("\nEnter your choice: ")
-               while vol_choice not in ["1","2","3","4"]:
+               while vol_choice not in ["1","2","3","4","5"]:
                     print(f"\nInvalid choice.")
-                    vol_choice = input("Please enter 1, 2, 3 or 4: ")
+                    vol_choice = input("Please enter 1, 2, 3, 4 or 5: ")
+
                if vol_choice == "1":
-                    
                     while True:
                          length = input("\nEnter the length of a cuboid: ").strip()
 
@@ -613,8 +714,7 @@ while valid:
                               print("Invalid Input.")
                               continue
                          length = float(length)
-                         break
-                    
+                         break                  
                     volume = (length)**3
                     print(f"\nLength of the cube = {length}")
                     print(f"Volume of the cube = {volume}")
@@ -659,8 +759,7 @@ while valid:
                               print("Invalid Input.")
                               continue
                          height = float(height)
-                         break
-                    
+                         break                  
                     volume = (1/3)*(PI) * (radius)**2 * (height)
                     print(f"Radius = {radius}\theight = {height}")
                     print(f"Volume of the cone = {volume}")
@@ -706,11 +805,38 @@ while valid:
                               continue
                          height = float(height)
                          break
-
                     volume = (PI) * (radius)**2 * (height)
                     print(f"Radius = {radius}\theight = {height}")
                     print(f"Volume of the cylinder = {volume}")
 
+               elif vol_choice == "5":
+                    while True:
+                         radius = input("\nEnter the radius of the sphere: ").strip()
+
+                         if radius == "" or radius == "-":
+                              print("Invalid Input.")
+                              continue
+                         if radius.count(".")>1:
+                              print("Invalid Input.")
+                              continue
+                         valid_check = True
+                         for ch in radius:
+                              if ch not in "0123456789.":
+                                   valid_check = False
+                                   break
+                         if not valid_check:
+                              print("Invalid Input.")
+                              continue
+                         radius = float(radius)
+                         break
+                    volume = (4/3)*(PI)*(radius)**3
+                    print(f"Radius = {radius}")
+                    print(f"Volume of the sphere = {volume}")
+
+
+
+
+     # QUIT
      elif choice_initial.strip().upper() == "Q":
           valid = False
           print("\n")
